@@ -39,6 +39,11 @@ class Popen(popen_fork.Popen):
         self._fds = []
         super().__init__(process_obj)
 
+        
+        
+        
+        
+        
     def duplicate_for_child(self, fd):
         self._fds.append(fd)
         return len(self._fds) - 1
