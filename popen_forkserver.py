@@ -7,7 +7,12 @@ if not reduction.HAVE_SEND_HANDLE:
 from . import forkserver
 from . import popen_fork
 from . import spawn
-from . import util
+from . import util  
+
+
+
+
+
 
 
 __all__ = ['Popen']
@@ -47,6 +52,9 @@ class Popen(popen_fork.Popen):
             reduction.dump(process_obj, buf)
         finally:
             set_spawning_popen(None)
+            
+            
+            
 
         self.sentinel, w = forkserver.connect_to_new_process(self._fds)
         self.finalizer = util.Finalize(self, os.close, (self.sentinel,))
